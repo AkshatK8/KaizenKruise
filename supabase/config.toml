@@ -1,0 +1,5 @@
+[functions.livekit-token]
+verify_jwt = false
+
+[functions.join-room]
+verify_jwt = false

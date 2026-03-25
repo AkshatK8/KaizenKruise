@@ -11,7 +11,7 @@ import SwiftUI
 struct VC_PoCApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppEntry()
         }
     }
 }

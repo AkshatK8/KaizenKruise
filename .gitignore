@@ -1,0 +1,9 @@
+.DS_Store
+
+# Local Supabase secrets and temp state
+supabase/.env
+supabase/.temp/
+
+# Xcode user-specific files
+*.xcuserstate
+**/xcuserdata/

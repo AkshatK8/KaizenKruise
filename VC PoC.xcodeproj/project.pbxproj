@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3A8229EC2F746CC900F678E6 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8229EB2F746CC900F678E6 /* Auth */; };
+		3A8229EE2F746CC900F678E6 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8229ED2F746CC900F678E6 /* Functions */; };
+		3A8229F02F746CC900F678E6 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8229EF2F746CC900F678E6 /* PostgREST */; };
+		3A8229F22F746CC900F678E6 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8229F12F746CC900F678E6 /* Realtime */; };
+		3A8229F42F746CC900F678E6 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8229F32F746CC900F678E6 /* Storage */; };
+		3A8229F62F746CC900F678E6 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8229F52F746CC900F678E6 /* Supabase */; };
+		3A8229F92F746D2400F678E6 /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8229F82F746D2400F678E6 /* LiveKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3A82299A2F734D5000F678E6 /* VC PoC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VC PoC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +33,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8229F02F746CC900F678E6 /* PostgREST in Frameworks */,
+				3A8229EE2F746CC900F678E6 /* Functions in Frameworks */,
+				3A8229F62F746CC900F678E6 /* Supabase in Frameworks */,
+				3A8229EC2F746CC900F678E6 /* Auth in Frameworks */,
+				3A8229F42F746CC900F678E6 /* Storage in Frameworks */,
+				3A8229F92F746D2400F678E6 /* LiveKit in Frameworks */,
+				3A8229F22F746CC900F678E6 /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +82,13 @@
 			);
 			name = "VC PoC";
 			packageProductDependencies = (
+				3A8229EB2F746CC900F678E6 /* Auth */,
+				3A8229ED2F746CC900F678E6 /* Functions */,
+				3A8229EF2F746CC900F678E6 /* PostgREST */,
+				3A8229F12F746CC900F678E6 /* Realtime */,
+				3A8229F32F746CC900F678E6 /* Storage */,
+				3A8229F52F746CC900F678E6 /* Supabase */,
+				3A8229F82F746D2400F678E6 /* LiveKit */,
 			);
 			productName = "VC PoC";
 			productReference = 3A82299A2F734D5000F678E6 /* VC PoC.app */;
@@ -94,6 +118,10 @@
 			);
 			mainGroup = 3A8229912F734D5000F678E6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				3A8229F72F746D2400F678E6 /* XCRemoteSwiftPackageReference "client-sdk-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3A82299B2F734D5000F678E6 /* Products */;
 			projectDirPath = "";
@@ -256,8 +284,12 @@
 				DEVELOPMENT_TEAM = FL83M5CE8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = KaizenKruise;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice chat requires microphone access.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIBackgroundModes = audio;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -266,7 +298,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.VC-PoC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KaizenKruise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -288,8 +320,12 @@
 				DEVELOPMENT_TEAM = FL83M5CE8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = KaizenKruise;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice chat requires microphone access.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIBackgroundModes = audio;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -298,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.VC-PoC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KaizenKruise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -332,6 +368,63 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		3A8229F72F746D2400F678E6 /* XCRemoteSwiftPackageReference "client-sdk-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/livekit/client-sdk-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A8229EB2F746CC900F678E6 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		3A8229ED2F746CC900F678E6 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		3A8229EF2F746CC900F678E6 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		3A8229F12F746CC900F678E6 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		3A8229F32F746CC900F678E6 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		3A8229F52F746CC900F678E6 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8229EA2F746CC900F678E6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		3A8229F82F746D2400F678E6 /* LiveKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A8229F72F746D2400F678E6 /* XCRemoteSwiftPackageReference "client-sdk-swift" */;
+			productName = LiveKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A8229922F734D5000F678E6 /* Project object */;
 }
