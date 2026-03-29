@@ -15,7 +15,10 @@ final class SupabaseClientService {
     init() {
         #if canImport(Supabase)
         if let url = AppConfig.supabaseURL, let key = AppConfig.supabaseAnonKey {
-            self.client = SupabaseClient(supabaseURL: url, supabaseKey: key)
+            let options = SupabaseClientOptions(
+                auth: .init(emitLocalSessionAsInitialSession: true)
+            )
+            self.client = SupabaseClient(supabaseURL: url, supabaseKey: key, options: options)
         } else {
             self.client = nil
         }
@@ -60,17 +63,42 @@ final class SupabaseClientService {
         guard let client else {
             throw AppError.configurationMissing
         }
-        let session = try await client.auth.session
-        guard !session.accessToken.isEmpty else {
-            signedInUser = nil
-            return nil
+
+        do {
+            let session = try await client.auth.session
+
+            guard !session.accessToken.isEmpty else {
+                signedInUser = nil
+                return nil
+            }
+
+            if session.isExpired {
+                signedInUser = nil
+                return nil
+            }
+
+            let user = try await authUserFromSession(client: client)
+            signedInUser = user
+            return user
+        } catch {
+            // "No local session yet" is a normal app launch state.
+            if isMissingOrExpiredSessionError(error) {
+                signedInUser = nil
+                return nil
+            }
+            throw error
         }
-        let user = try await authUserFromSession(client: client)
-        signedInUser = user
-        return user
         #else
         throw AppError.packageMissing
         #endif
+    }
+
+    private func isMissingOrExpiredSessionError(_ error: Error) -> Bool {
+        let message = error.localizedDescription.lowercased()
+        return message.contains("auth session missing")
+            || message.contains("session missing")
+            || message.contains("session has expired")
+            || message.contains("expired")
     }
 
     func accessToken() async throws -> String {
@@ -79,6 +107,10 @@ final class SupabaseClientService {
             throw AppError.configurationMissing
         }
         let session = try await client.auth.session
+        guard !session.isExpired else {
+            signedInUser = nil
+            throw AppError.message("Session expired. Please sign in again.")
+        }
         return session.accessToken
         #else
         throw AppError.packageMissing
