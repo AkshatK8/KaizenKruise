@@ -9,6 +9,12 @@ SwiftUI iOS app for voice chat rooms using Supabase (auth + room metadata) and L
 - Apple Developer account (for TestFlight distribution)
 - Optional: Sentry project for crash reporting
 
+## Xcode Cloud build numbers
+
+- `ci_scripts/ci_pre_xcodebuild.sh` sets `CURRENT_PROJECT_VERSION` from `CI_BUILD_NUMBER`.
+- This ensures every Xcode Cloud upload has a unique build number (`CFBundleVersion`).
+- Local builds are unchanged unless you manually change the Build value in Xcode.
+
 ## Local configuration
 
 Set these run-scheme environment variables in Xcode:
