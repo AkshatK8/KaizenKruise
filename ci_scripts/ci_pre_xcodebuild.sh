@@ -14,7 +14,13 @@ fi
 
 echo "Using CI_BUILD_NUMBER=${CI_BUILD_NUMBER}"
 
-PROJECT_PATH="$(ls -1 *.xcodeproj 2>/dev/null | awk 'NR==1 { print; exit }')"
+PROJECT_PATH=""
+for candidate in ./*.xcodeproj; do
+  if [ -d "${candidate}" ]; then
+    PROJECT_PATH="${candidate#./}"
+    break
+  fi
+done
 if [ -z "${PROJECT_PATH}" ]; then
   echo "No .xcodeproj found at repo root: ${REPO_ROOT}"
   exit 1
