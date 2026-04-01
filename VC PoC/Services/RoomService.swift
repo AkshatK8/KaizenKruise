@@ -60,13 +60,10 @@ final class RoomService {
     func createRoom(name: String, creator: AppUser) async throws -> VoiceRoom {
         #if canImport(Supabase)
         let client = try authClient.supabase()
-        let rows: [RoomRow] = try await client
+        let row: RoomRow = try await client
             .rpc("create_room", params: ["input_name": name])
             .execute()
             .value
-        guard let row = rows.first else {
-            throw AppError.message("Failed to create room.")
-        }
         return mapRoomRow(row)
         #else
         _ = (name, creator)
@@ -81,13 +78,10 @@ final class RoomService {
             throw AppError.message("Code must be 4 digits.")
         }
         let client = try authClient.supabase()
-        let rows: [RoomRow] = try await client
+        let row: RoomRow = try await client
             .rpc("join_room_by_code", params: ["input_code": normalized])
             .execute()
             .value
-        guard let row = rows.first else {
-            throw AppError.message("No room found for that code.")
-        }
         return mapRoomRow(row)
         #else
         _ = (code, user)
